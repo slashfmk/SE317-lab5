@@ -1,3 +1,5 @@
+package app;
+
 public enum Trend {
 
     UP,

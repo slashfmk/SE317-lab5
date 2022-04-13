@@ -1,3 +1,5 @@
+package app;
+
 public class Temperature extends Climate {
 
     private int temp;

@@ -1,3 +1,5 @@
+package app;
+
 public class Humidity extends Climate {
 
     private int humidity;

@@ -1,3 +1,5 @@
+package app;
+
 public class Device {
 
     private Temperature[] temperature;
@@ -19,6 +21,16 @@ public class Device {
     }
 
     public Device() {
+        this.temperature = new Temperature[2];
+        this.humidity = new Humidity[2];
+
+        this.temperature[0] = null;
+        this.humidity[0] = null;
+
+        this.temperature[1] = null;
+        this.humidity[1] = null;
+
+      //  this.updateHumidityStatus();
     }
 
     public HumidityStatus getHumidityStatus() {
@@ -59,7 +71,7 @@ public class Device {
         }
     }
 
-    // Humidity
+    // app.Humidity
     public Humidity getCurrentHumidity() {
         return this.humidity[1];
     }
@@ -105,7 +117,7 @@ public class Device {
 
     private void updateHumidityTrend() {
 
-        // this.humidTrend = Trend.STABLE;
+        // this.humidTrend = app.Trend.STABLE;
 
         if (this.humidity[0] != null && this.humidity[0].getHumidity() > this.humidity[1].getHumidity()) {
             this.humidTrend = Trend.DOWN;
@@ -120,7 +132,7 @@ public class Device {
 
     private void updateTempTrend() {
 
-        // this.tempTrend = Trend.STABLE;
+        // this.tempTrend = app.Trend.STABLE;
 
         if (this.temperature[0] != null && this.temperature[0].getTemp() > this.temperature[1].getTemp()) {
             this.tempTrend = Trend.DOWN;
@@ -134,30 +146,31 @@ public class Device {
 
 
     public void displayInfo() {
-        System.out.println("Temperature");
+        System.out.println("app.Temperature");
         System.out.println("***********");
         System.out.println("Current relative temperature: " + this.temperature[1].getTemp() + "F");
         System.out.println("Max relative temperature: " + this.temperature[1].getMax());
         System.out.println("Min relative temperature: " + this.temperature[1].getMin());
 
-        System.out.println("Temperature trend: " + this.getTempTrend() + "\n");
+        System.out.println("app.Temperature trend: " + this.getTempTrend());
 
         System.out.println("Current temp: " + (this.getCurrentTemperature() == null ? "Not recorded" : this.getCurrentTemperature().getTemp()) +
                 " | last temp: " + (this.getPreviousTemperature() == null ? "Not recorded" : this.getPreviousTemperature().getTemp()));
 
         System.out.println("");
 
-        System.out.println("Humidity");
+        System.out.println("app.Humidity");
         System.out.println("********");
         System.out.println("Current relative humidity: " + this.humidity[1].getHumidity() + "%");
         System.out.println("Max relative humidity: " + this.humidity[1].getMax());
         System.out.println("Min relative humidity: " + this.humidity[1].getMin());
 
-        System.out.println("Humidity trend: " + this.getHumidTrend());
-        System.out.println("Humidity status: " + this.humidityStatus);
-        System.out.println("Current Humidity: " + (this.getCurrentHumidity() == null ? "Not recorded" : this.getCurrentHumidity().getHumidity()) +
+        System.out.println("app.Humidity trend: " + this.getHumidTrend());
+        System.out.println("app.Humidity status: " + this.humidityStatus);
+        System.out.println("Current app.Humidity: " + (this.getCurrentHumidity() == null ? "Not recorded" : this.getCurrentHumidity().getHumidity()) +
                 " | last humidity: " + (this.getPreviousHumidity() == null ? "Not recorded" : this.getPreviousHumidity().getHumidity()));
 
+        System.out.println("----------------------------------------------");
 
     }
 
